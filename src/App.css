@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
