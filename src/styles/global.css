@@ -990,6 +990,428 @@
 .download-btn:hover {
   background: #0056b3;
 }
+/* App.css or global.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li {
+    display: inline;
+}
+.create-doc-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.create-doc-btn:hover {
+  background-color: #0056b3;
+}
+/* Ensure full width and height */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Ensure full black background */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Remove padding/margin from home container */
+.home-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+/* Ensure full height minus navbar */
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); /* Adjust based on navbar height */
+  width: 100vw;
+  background-color: black; /* Keep the dark theme */
+  padding: 10px;
+}
+
+/* Make text editor take all available space */
+.text-editor {
+  flex-grow: 1;
+  width: 100%;
+  min-height: 400px;
+  max-height: 600px;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  outline: none;
+  overflow-y: auto;
+}
+.action-btn {
+  background-color: #1d4ed8; /* Blue color */
+  color: white; /* White text */
+  padding: 10px 24px; /* Similar to px-6 py-2 */
+  border-radius: 6px; /* Rounded corners */
+  font-size: 18px; /* Similar to text-lg */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: #1e40af; /* Darker blue on hover */
+  transform: scale(1.05); /* Smooth zoom effect */
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-input,
+.file-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: space-between; /* Space out buttons */
+  align-items: center;
+  gap: 20px; /* Adds space between buttons */
+  margin-top: 10px;
+  width: 100%;
+}
+.modal-buttons button {
+  width: 45%; /* Ensures buttons are equal width and properly spaced */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.confirm-btn,
+.cancel-btn {
+  flex: 1; /* Makes both buttons equal in size */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.confirm-btn {
+  background: #007bff;
+  color: white;
+}
+
+.cancel-btn {
+  background: #dc3545;
+}
+
+.confirm-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Set a proper width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Ensures equal spacing between elements */
+}
+
+.modal-content h2 {
+  margin-bottom: 10px; /* Reduce top space */
+}
+
+.modal-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 350px;
+  padding: 20px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-buttons button {
+  width: 45%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-doc-btn, .edit-doc-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.create-doc-btn:hover, .edit-doc-btn:hover {
+  background: #0056b3;
+}
+
+.cancel-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.confirm-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.editor-textarea {
+  width: 80%;
+  height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.editor-buttons {
+  margin-top: 10px;
+}
+
+.editor-buttons button {
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 350px;
+  padding: 20px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-buttons button {
+  width: 45%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-doc-btn, .edit-doc-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.create-doc-btn:hover, .edit-doc-btn:hover {
+  background: #0056b3;
+}
+
+.cancel-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.confirm-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.editor-container {
+  background-color: grey;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.editor-textarea {
+  width: 80%;
+  height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.editor-buttons {
+  margin-top: 10px;
+}
+
+.editor-buttons button {
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.toolbar button, .toolbar select, .toolbar input[type="color"] {
+  padding: 8px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.toolbar select, .toolbar input {
+  padding: 5px;
+}
+
+.text-editor {
+  background: white;
+  min-height: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+}
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  min-height: 100vh; /* Full height */
+  padding-top: 10px; /* Adjust this value to move it slightly down */
+  text-align: center;
+}
+
+
 
 
 
