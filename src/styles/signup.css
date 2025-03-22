@@ -1,0 +1,109 @@
+/* Centering & Styling */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+}
+
+.signup-box {
+    width: 380px;
+    padding: 25px;
+    background-color: black;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.signup-box h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.signup-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Password Field */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    font-size: 14px;
+    margin-top: -5px;
+}
+
+.weak { color: red; }
+.medium { color: orange; }
+.strong { color: green; }
+
+/* Terms & Conditions */
+.terms {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Login Link */
+.login-link {
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Social Buttons */
+.social-buttons {
+    margin-top: 15px;
+}
+
+.google-btn, .github-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.google-btn { background: #db4437; color: white; }
+.github-btn { background: #333; color: white; }

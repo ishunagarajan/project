@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/global.css";
+import "../styles/global.css"; // Ensure you create/update Home.css
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState(""); // "create" or "edit"
   const [docName, setDocName] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
   const navigate = useNavigate();
 
   const handleCreateDocument = () => {
@@ -28,23 +27,24 @@ const Home = () => {
       reader.readAsText(file);
     }
   };
-  
 
   return (
-    <div className="home-container flex justify-center items-center min-h-screen w-full bg-black">
-      <h1 className="home-title">Welcome to Your Document Editor</h1>
-      <h5 className="home-title">Online, collaborative documents
-      that help you and your team create and collaborate on content.</h5>
+    <div className="home-container">
+      {/* Header Section */}
+      <h1 className="home-title">Welcome to DocCollab</h1>
+      <p className="home-subtitle">
+        Online, collaborative documents that help you and your team create and work together.
+      </p>
 
       {/* Features Section */}
       <div className="features">
         <div className="feature-card">
           <h3>Live Editing</h3>
-          <p>See changes as they happen with our real-time collaborative editor.</p>
+          <p>See changes as they happen with real-time collaboration.</p>
         </div>
         <div className="feature-card">
           <h3>Multi-User Access</h3>
-          <p>Work together with your team members simultaneously on the same document.</p>
+          <p>Work with your team members on the same document simultaneously.</p>
         </div>
         <div className="feature-card">
           <h3>Version Control</h3>
@@ -56,40 +56,40 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Button Container */}
+      {/* Action Buttons */}
       <div className="button-container">
         <button
-          className="action-btn"
+          className="action-btn create"
           onClick={() => {
             setModalType("create");
             setShowModal(true);
           }}
         >
-          Create New Document +
+          + Create New Document
         </button>
         <button
-          className="action-btn"
+          className="action-btn edit"
           onClick={() => {
             setModalType("edit");
             setShowModal(true);
           }}
         >
-          Edit Document ✏️
+          ✏️ Edit Existing Document
         </button>
       </div>
 
-      {/* Modal Popup (Used for Both Create & Edit) */}
+      {/* Modal Popup */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
             {modalType === "create" ? (
               <>
-                <h2>Name Your Document</h2>
+                <h2>Enter Document Name</h2>
                 <input
                   type="text"
                   placeholder="Enter document name..."
                   value={docName}
-                  onChange={(e) => setDocName(e.target.value)} 
+                  onChange={(e) => setDocName(e.target.value)}
                   className="modal-input"
                 />
                 <div className="modal-buttons">
