@@ -20,23 +20,38 @@ const SignupPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // ✅ Password Validation Function
+  const isValidPassword = (password) => {
+    return (
+      password.length >= 8 &&
+      /\d/.test(password) && // At least one number
+      /[!@#$%^&*(),.?":{}|<>]/.test(password) // At least one special character
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
 
-    // ✅ Frontend validation before making API call
-    if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+    // ✅ Trim input values to prevent spaces issues
+    const name = formData.name.trim();
+    const email = formData.email.trim().toLowerCase();
+    const password = formData.password.trim();
+    const confirmPassword = formData.confirmPassword.trim();
+
+    // ✅ Frontend Validation
+    if (!name || !email || !password || !confirmPassword) {
       setError("All fields are required!");
       return;
     }
 
-    if (formData.password.length < 8) {
-      setError("Password must be at least 8 characters long.");
+    if (!isValidPassword(password)) {
+      setError("Password must be at least 8 characters, include a number, and a special character.");
       return;
     }
 
-    if (formData.password !== formData.confirmPassword) {
+    if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
@@ -46,14 +61,8 @@ const SignupPage = () => {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/auth/signup",
-        {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        },
-        {
-          headers: { "Content-Type": "application/json" },
-        }
+        { name, email, password },
+        { headers: { "Content-Type": "application/json" } }
       );
 
       setSuccess("Signup successful! Redirecting to login...");
@@ -61,10 +70,12 @@ const SignupPage = () => {
     } catch (error) {
       console.error("Signup Error:", error.response?.data || error.message);
 
-      if (error.response?.status === 409) {
+      if (!error.response) {
+        setError("Network error! Check your connection and try again.");
+      } else if (error.response.status === 409) {
         setError("Email already registered. Try logging in.");
       } else {
-        setError(error.response?.data?.message || "Signup failed! Please try again.");
+        setError(error.response.data?.message || "Signup failed! Please try again.");
       }
     } finally {
       setLoading(false);
