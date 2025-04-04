@@ -6,7 +6,7 @@ const Editor = () => {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState("16px");
   const [fontStyle, setFontStyle] = useState("Arial");
-  const [color, setColor] = useState("#ffffff");
+  const [color, setColor] = useState("#000000");
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(false);
   const [underline, setUnderline] = useState(false);
@@ -23,12 +23,20 @@ const Editor = () => {
   }, []); // Load file content when editor mounts
 
   const handleDownload = () => {
+    let name = fileName.trim();
+    
+    // Ensure it ends with .txt
+    if (!name.toLowerCase().endsWith(".txt")) {
+      name += ".txt";
+    }
+  
     const blob = new Blob([text], { type: "text/plain" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = fileName;
+    link.download = name;
     link.click();
   };
+  
 
   return (
     <div className="editor-container" style={{ backgroundColor: "#808080" }}>
